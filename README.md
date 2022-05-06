@@ -5,7 +5,7 @@ In this repository, I learn and practice all JavaScript interactions from the br
 ___
 
 
-## Keywords:
+## **Keywords**:
 <ul>
 <li>Browser environment</li>
 <li>Introduction to the DOM</li>
