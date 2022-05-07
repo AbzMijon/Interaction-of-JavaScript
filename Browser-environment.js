@@ -34,6 +34,7 @@ for (let i = 0; i < 11; i++) {
 
 //Task with 'Hello ${name}';
 const someFunction = name => {
+    name = prompt('Enter Your Name..')
     const userTag = document.createElement('h2');
     const userName = document.createTextNode(`Wow, Welcome to team, ${name}!`);
     userTag.style.display = 'inline-block';
