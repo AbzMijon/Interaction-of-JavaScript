@@ -43,3 +43,12 @@ const someFunction = name => {
     mainRoot.append(userTag);
 }
 someFunction('Егор');
+
+//Also we can navigating in our elements!
+mainRoot.firstElementChild.style.fontSize = '45px';
+//Navigations items - parentElement , previousElementSibling , nextElementSibling , children , firstElementChild , lastElementChild.
+
+
+
+//========================================================================================================================================================
+//If you want watch practice of this lesson you can check another branch 'Browser-environment-Practice' , it will be funny, interesting and cool work! Bye!
