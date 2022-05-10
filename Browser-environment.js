@@ -9,6 +9,7 @@ const textAddBtn = document.createTextNode('Add');
 const search = document.createElement('input');
 const delBtn = document.createElement('button');
 const textDelBtn = document.createTextNode('Delete All');
+const allBtn = document.getElementsByTagName('button');
 
 //Add To MainRoot All Variables..
 mainRoot.append(toolsRow);
@@ -20,21 +21,22 @@ toolsRow.append(delBtn);
 
 //Add Styles For All Variables..
 mainRoot.style.backgroundColor = '#dad8d8';
-mainRoot.style.maxWidth = '1000px';
+mainRoot.style.maxWidth = '1200px';
 mainRoot.style.margin = '150px auto';
 mainRoot.style.padding = '25px 50px';
 mainRoot.style.border = '7px solid #000';
 mainRoot.style.borderRadius = '20px';
 toolsRow.style.width = '100%';
-toolsRow.style.display = 'flex';
-toolsRow.style.justifyContent = 'space-between';
+toolsRow.style.display = 'grid';
+toolsRow.style.gridTemplateColumns = '1fr 2.5fr 1fr';
+toolsRow.style.columnGap = '30px';
 toolsRow.style.marginBottom = '100px';
 search.placeholder = 'Enter To Do...';
 addBtn.style.padding = '35px';
 delBtn.style.padding = '35px';
 search.style.padding = '35px';
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
     const newCard = document.createElement('div');
     const newCardComplete = document.createElement('button');
     const newCardCompleteTxt = document.createTextNode('✔');
@@ -53,6 +55,14 @@ for (let i = 0; i < 3; i++) {
     newCardComplete.append(newCardCompleteTxt);
     newCard.append(newCardComplete);
     mainRoot.append(newCard)
+    for (const iterator of allBtn) {
+        iterator.style.border = '5px solid #000';
+        iterator.style.borderRadius = '15px';
+        iterator.style.fontWeight = 'bold';
+        iterator.style.fontSize = '30px';
+        iterator.style.backgroundColor = '#00ffff';
+        iterator.style.cursor = 'pointer';
+    }
     newCardToDo.style.color = 'grey';
     newCardToDo.style.backgroundColor = '#fff';
     newCardToDo.style.border = 'none';
@@ -60,6 +70,7 @@ for (let i = 0; i < 3; i++) {
     newCardToDo.style.margin = '60px 0';
     newCardToDo.style.borderRadius = '10px';
     newCardToDo.style.overflowY = 'auto';
+    newCardToDo.style.fontWeight = 'bold';
     newCardToDo.style.fontSize = '25px';
     newCardToDo.style.width = '100%';
     newCardToDo.style.minHeight = '100px';
@@ -92,4 +103,11 @@ for (let i = 0; i < 3; i++) {
     newCardClose.style.position = 'absolute';
     newCardClose.style.top = '10px';
     newCardClose.style.right = '10px';
+    search.style.borderRadius = '15px';
+    search.style.textAlign = 'center';
+    search.style.fontSize = '30px';
+    search.style.outline = 'none';
+    search.style.minWidth = '270px';
+    search.style.fontWeight = 'bold';
+    search.style.border = '5px solid #000';
 }
