@@ -1,6 +1,5 @@
 //Challendge Without CSS
 
-
 //Announce All Variables..
 const mainRoot = document.getElementById('root');
 const toolsRow = document.createElement('div');
