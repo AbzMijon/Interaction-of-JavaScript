@@ -1,0 +1,8 @@
+#item {
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 30px;
+    background-color: #9c2b2b;
+    color: #fff;
+}
