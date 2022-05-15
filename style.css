@@ -37,6 +37,8 @@ button {
     font-weight: bold;
     text-align: center;
     font-size: 30px;
+    outline: none;
+    border: 5px solid #000;
 }
 
 .root__new-card{
@@ -84,4 +86,18 @@ button {
     position: absolute;
     bottom: 15px;
     right: 15px;
+}
+
+
+
+#item {
+    position: relative;
+    background-color: orange;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin: 124px 190px;
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 1px;
 }
