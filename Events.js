@@ -42,3 +42,4 @@ box.addEventListener('mouseover', () => {
     box.style.top = randomValue(1000) + 'px';
     box.style.left = randomValue(1000) + 'px';
 })
+
