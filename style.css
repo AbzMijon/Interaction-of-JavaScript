@@ -86,9 +86,11 @@ button {
     position: absolute;
     bottom: 15px;
     right: 15px;
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: -0.5px;
 }
-
-
 
 #item {
     position: relative;

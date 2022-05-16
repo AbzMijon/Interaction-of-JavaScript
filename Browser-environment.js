@@ -21,7 +21,7 @@ toolsRow.append(delBtn);
 theNote.placeholder = 'Enter To Do...'; //For placeholder
 
 //Now we create cycle for creating new notes
-for (let i = 0; i < 1; i++) {
+
     //Announce variables..
     const newCard = document.createElement('div');
     const newCardComplete = document.createElement('button');
@@ -42,7 +42,6 @@ for (let i = 0; i < 1; i++) {
     newCard.append(newCardToDo);
     newCardComplete.append(newCardCompleteTxt);
     newCard.append(newCardComplete);
-    mainRoot.append(newCard)
 
     //Give name our variables for future working in CSS
     mainRoot.className = 'main__root';
@@ -62,11 +61,11 @@ for (let i = 0; i < 1; i++) {
         const newCardComplete = document.createElement('button');
         const newCardCompleteTxt = document.createTextNode('✔');
         const newCardToDo = document.createElement('div');
-        const newCardToDoTxt = document.createTextNode('Todo Text');
+        const newCardToDoTxt = document.createTextNode(theNote.value);
         const newCardClose = document.createElement('button');
         const newCardCloseTxt = document.createTextNode('✖');
         const newCardDate = document.createElement('div');
-        const newCardDateTxt = document.createTextNode('Date');
+        const newCardDateTxt = document.createTextNode(new Date().toDateString());
         
         //Adding variables..
         newCardDate.append(newCardDateTxt);
@@ -90,12 +89,18 @@ for (let i = 0; i < 1; i++) {
         newCardClose.className = 'root__close-btn';
         newCardDate.className = 'root__date-btn';
 
+        //Delete All Function
+        const arrCard = document.getElementsByClassName('root__new-card');
+        console.log(arrCard);
 
+        delBtn.addEventListener('click', () => {
+            for (const card of arrCard) {
+                card.remove();
+            }
+        })
+
+        //Delete One Element
         newCardClose.addEventListener('click', () => {
-            newCard.style.display = 'none';
+            newCard.remove();
         })
     })
-    newCardClose.addEventListener('click', () => {
-        newCard.style.display = 'none';
-    })
-}
