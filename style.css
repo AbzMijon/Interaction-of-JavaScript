@@ -1,8 +1,13 @@
-#item {
-    display: inline-block;
-    padding: 20px 30px;
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.div {
+    width: 100px;
+    height: 200px;
+    background-color: cadetblue;
     border-radius: 10px;
-    font-size: 30px;
-    background-color: #9c2b2b;
-    color: #fff;
+    border: 2px solid #000;
 }
