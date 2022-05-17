@@ -40,7 +40,6 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         const newCardCloseTxt = document.createTextNode('✖');
         const newCardDate = document.createElement('div');
         const newCardDateTxt = document.createTextNode(new Date().toDateString());
-        theNote.value = '';
         
         //Adding variables..
         newCardDate.append(newCardDateTxt);
@@ -52,7 +51,6 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         newCardComplete.append(newCardCompleteTxt);
         newCard.append(newCardComplete);
         mainRoot.append(newCard)
-
         //Give name our variables for future working in CSS
         mainRoot.className = 'main__root';
         toolsRow.className = 'root__row';
@@ -64,6 +62,12 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         newCardToDo.className = 'root__ToDo';
         newCardClose.className = 'root__close-btn';
         newCardDate.className = 'root__date-btn';
+
+        //API Storage
+        const textAPI = localStorage.setItem('text', theNote.value);
+
+        //Zero symbols in input
+        theNote.value = '';
 
         //Events
 
@@ -84,4 +88,7 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         newCardComplete.addEventListener('click', () => {
             newCard.classList.toggle('complete-card-bg');
         })
+
     })
+
+    console.log(localStorage.getItem('text'));
