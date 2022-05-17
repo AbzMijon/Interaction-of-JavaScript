@@ -54,6 +54,7 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
     newCardToDo.className = 'root__ToDo';
     newCardClose.className = 'root__close-btn';
     newCardDate.className = 'root__date-btn';
+    
 
     //Events
     addBtn.addEventListener('click', () => {
@@ -66,6 +67,7 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         const newCardCloseTxt = document.createTextNode('✖');
         const newCardDate = document.createElement('div');
         const newCardDateTxt = document.createTextNode(new Date().toDateString());
+        theNote.value = '';
         
         //Adding variables..
         newCardDate.append(newCardDateTxt);
@@ -91,7 +93,6 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
 
         //Delete All Function
         const arrCard = document.getElementsByClassName('root__new-card');
-        console.log(arrCard);
 
         delBtn.addEventListener('click', () => {
             for (const card of arrCard) {
@@ -102,5 +103,9 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         //Delete One Element
         newCardClose.addEventListener('click', () => {
             newCard.remove();
+        })
+
+        newCardComplete.addEventListener('click', (event) => {
+            newCard.classList.toggle('complete-card-bg');
         })
     })

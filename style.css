@@ -92,6 +92,14 @@ button {
     letter-spacing: -0.5px;
 }
 
+.complete-card-bg {
+    background-color: #851b1b;
+}
+
+.complete-card-bg .root__ToDo {
+    text-decoration: line-through;
+}
+
 #item {
     position: relative;
     background-color: orange;
