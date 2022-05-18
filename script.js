@@ -8,6 +8,7 @@ const burgerLines = document.getElementById('burger__line');
 body.addEventListener('click', event => {
     if(event.target === burgerMenu || event.target === burgerLines) {
         rulesMenu.classList.toggle('game-body__rules-click');
+        burgerMenu.classList.toggle('burger-rotate');
     }
     else if(event.target === btn) {
         btn.style.display = 'none';
@@ -31,3 +32,4 @@ body.addEventListener('click', event => {
     }
     else return;
 })
+console.log(burgerMenu.style);
