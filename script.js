@@ -29,4 +29,5 @@ body.addEventListener('click', event => {
             box.style.display = 'none';
         })
     }
+    else return;
 })
