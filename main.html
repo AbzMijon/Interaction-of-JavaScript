@@ -7,9 +7,20 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="root" class="test__root"></div>
-    <textarea id="txarea" cols="30" rows="10"></textarea>
-    <button id="btn">Add</button>
-    <script src="./API.js"></script>
+    <div id="game-body">
+        <div id="game-body__box"></div>
+        <button id="game-body__start">Click to start</button>
+            <ol class="game-body__rules">
+                <li id="game-body__item">Для того что бы начать игру вы должны нажать на кнопку</li>
+                <li id="game-body__item">После нажатия идет подготовка 3 секунды</li>
+                <li id="game-body__item">Затем в случайном месте появится элемент красного цвета по которому вы должны кликнуть</li>
+                <li id="game-body__item">После клика игра останавливается и показывает ваш результат в секундах</li>
+                <li id="game-body__item">Удачной игры!</li>
+            </ol>
+        <div id="burger">
+            <span id="burger__line"></span>
+        </div>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>

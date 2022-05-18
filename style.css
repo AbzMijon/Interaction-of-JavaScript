@@ -1,13 +1,104 @@
 body {
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
+    margin: 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.div {
-    width: 100px;
-    height: 200px;
-    background-color: cadetblue;
+#game-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+}
+
+#game-body__box {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: red;
+    display: none;
+}
+
+#game-body__start {
+    padding: 15px 25px;
     border-radius: 10px;
-    border: 2px solid #000;
+    background-color: orange;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translateX(-50%);
+    transition: 0.1s all;
+}
+#game-body__start:hover {
+    background-color: #b17e21;
+}
+
+#burger {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    left: 20px;
+}
+
+#burger__line {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background-color: #fff;
+}
+#burger__line::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 5px;
+    background-color: #fff;
+    left: 0;
+    top: 10px;
+}
+#burger__line::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 5px;
+    background-color: #fff;
+    left: 0;
+    bottom: 10px;
+}
+
+.game-body__rules {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+.game-body__rules-click {
+    display: block;
+}
+
+#game-body__item {
+    margin-bottom: 15px;
+}
+
+.result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    font-size: 35px;
+    color: #000;
+    text-align: center;
+    padding: 40px 50px;
+    border-radius: 15px;
+    transform: translate(-50%);
 }
