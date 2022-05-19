@@ -94,7 +94,7 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
             else return;
         })
 
-        /* theNote.value = ''; */
+        theNote.value = '';
     }
 
     addBtn.addEventListener('click', addNewCard);
