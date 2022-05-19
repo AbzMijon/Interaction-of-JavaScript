@@ -103,6 +103,6 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
     const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
     if(todoArrFromStorage && todoArrFromStorage.length) {
         todoArrFromStorage.forEach(element => {
-            mainRoot.append(addNewCard(element.toDoText));
+            mainRoot.append(addNewCard(element));
         })
     }
