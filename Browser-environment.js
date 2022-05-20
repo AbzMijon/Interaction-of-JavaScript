@@ -29,21 +29,20 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
     
     //API Locale Storage
     let toDoArr = [];
-    let ids = 0;
+    let ids = 1;
     const ToDoConstructor = function(toDoText, toDoId, toDoComplete) {
         this.toDoText = toDoText;
         this.toDoId = toDoId;
         this.toDoComplete = toDoComplete;
     }
 
-    const addNewCard = inputValue => {
-        inputValue = theNote.value;  
+    const addNewCard = (text, isChecked = false)=> {
         //Announce variables..
         const newCard = document.createElement('div');
         const newCardComplete = document.createElement('button');
         const newCardCompleteTxt = document.createTextNode('✔');
         const newCardToDo = document.createElement('div');
-        const newCardToDoTxt = document.createTextNode(inputValue);
+        const newCardToDoTxt = document.createTextNode(text);
         const newCardClose = document.createElement('button');
         const newCardCloseTxt = document.createTextNode('✖');
         const newCardDate = document.createElement('div');
@@ -72,7 +71,9 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         newCardClose.className = 'root__close-btn';
         newCardDate.className = 'root__date-btn';
 
-        const toDoApi = new ToDoConstructor(inputValue, ids++, false);
+        newCard.dataset.id = 1;
+
+        const toDoApi = new ToDoConstructor(text, ids++, false);
         toDoArr.push(toDoApi);
         localStorage.setItem('todoArr', JSON.stringify(toDoArr));
         //Events
@@ -83,26 +84,32 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
                 for (const card of arrCard) {
                     card.remove();
                 }
-            }
-            else if (event.target === newCardClose) {
-                newCard.remove();
                 localStorage.removeItem('todoArr');
-            }
-            else if (event.target === newCardComplete) {
+
+            } else if (event.target === newCardClose) {
+                console.log(newCard.dataset.id);
+                let arr1 = toDoArr.filter(elem => +elem.toDoId !== +newCard.dataset.id);
+                localStorage.setItem('todoArr', JSON.stringify(arr1));
+                newCard.remove();
+
+            } else if (event.target === newCardComplete) {
                 newCard.classList.toggle('complete-card-bg');
             }
-            else return;
         })
 
         theNote.value = '';
+
+        return newCard;
     }
 
-    addBtn.addEventListener('click', addNewCard);
+    addBtn.addEventListener('click', (event) => {
+        addNewCard(theNote.value, false);
+    });
 
     //Add API element to HTML
     const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
     if(todoArrFromStorage && todoArrFromStorage.length) {
         todoArrFromStorage.forEach(element => {
-            mainRoot.append(addNewCard(element));
+            mainRoot.append(addNewCard(element.toDoText));
         })
     }
