@@ -1,5 +1,3 @@
-import { decktr } from './moduleCheck.js';
-
 const root = document.getElementById('root');
 const tx = document.getElementById('txarea');
 const btn = document.getElementById('btn');
