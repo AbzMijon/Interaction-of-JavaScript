@@ -102,14 +102,8 @@ button {
     color: #851b1b;
 }
 
-#item {
-    position: relative;
-    background-color: orange;
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 10px;
-    margin: 124px 190px;
-    color: #fff;
-    font-size: 30px;
-    letter-spacing: 1px;
+.root__new-card--completed {
+    text-decoration: line-through;
+    color: #851b1b;
+    background-color: #851b1b;
 }

@@ -29,14 +29,14 @@
     
     //API Locale Storage
     let toDoArr = [];
-    let ids = 1;
+    let ids = Date.now();
     const ToDoConstructor = function(toDoText, toDoId, toDoComplete) {
         this.toDoText = toDoText;
         this.toDoId = toDoId;
         this.toDoComplete = toDoComplete;
     }
 
-    const addNewCard = (text, isChecked = false)=> {
+    const addNewCard = function(text, isChecked = false) {
         //Announce variables..
         const newCard = document.createElement('div');
         const newCardComplete = document.createElement('button');
@@ -60,22 +60,22 @@
         newCard.append(newCardComplete);
         mainRoot.append(newCard)
 
-        //Give name our variables for future working in CSS
+        newCard.dataset.id = Date.now();
+        const toDoApi = new ToDoConstructor(text, Date.now(), false);
+        toDoArr.push(toDoApi);
+        localStorage.setItem('todoArr', JSON.stringify(toDoArr));
+
+         //Give name our variables for future working in CSS
         mainRoot.className = 'main__root';
         toolsRow.className = 'root__row';
         addBtn.className = 'root__add-btn';
         theNote.className = 'root__note';
         delBtn.className = 'root__del-btn';
-        newCard.className = 'root__new-card';
+        newCard.className = (isChecked) ? 'root__new-card--completed' : 'root__new-card';
         newCardComplete.className = 'root__complete-btn';
         newCardToDo.className = 'root__ToDo';
         newCardClose.className = 'root__close-btn';
         newCardDate.className = 'root__date-btn';
-
-        newCard.dataset.id = 1;
-        const toDoApi = new ToDoConstructor(text, ids++, false);
-        toDoArr.push(toDoApi);
-        localStorage.setItem('todoArr', JSON.stringify(toDoArr));
 
         //Events
 
@@ -94,8 +94,21 @@
         
             } else if (event.target === newCardComplete) {
                 newCard.classList.toggle('complete-card-bg');
+            } else if (event.target === newCard) {
+                console.log(event.target.dataset.id);
+                console.log(localStorage.getItem('todoArr'));
             }
         })
+
+        mainRoot.addEventListener('click', event => {
+            if(event.target === newCard) {
+                const todoClickCard = toDoArr.find(elem => +elem.toDoId === +event.target.dataset.id);
+                console.log(todoClickCard);
+                todoClickCard.toDoComplete = !todoClickCard.toDoComplete;
+                localStorage.setItem('todoArr', JSON.stringify(toDoArr));
+            }
+        })
+
         theNote.value = '';
         return newCard;
     }
@@ -109,15 +122,15 @@
     const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
     if(todoArrFromStorage && todoArrFromStorage.length) {
         todoArrFromStorage.forEach(element => {
-            mainRoot.append(addNewCard(element.toDoText));
+            mainRoot.append(addNewCard(element.toDoText, element.toDoComplete));
         })
     }
     
 
     //Decktucturisation
-    for (const newCards of toDoArr) {
+/*     for (const newCards of toDoArr) {
         var {toDoText, toDoId, toDoComplete} = newCards;
     }
     console.log(toDoText);
     console.log(toDoId);
-    console.log(toDoComplete);
+    console.log(toDoComplete); */
