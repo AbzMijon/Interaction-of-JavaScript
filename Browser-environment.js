@@ -34,7 +34,7 @@ const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
 	this.toDoComplete = toDoComplete;
 };
 
-const addNewCard = function (text, isChecked = false) {
+const addNewCard = function (text, isChecked = false, id) {
 	//Announce variables..
 	const newCard = document.createElement('div');
 	const newCardComplete = document.createElement('button');
@@ -56,11 +56,13 @@ const addNewCard = function (text, isChecked = false) {
 	newCardComplete.append(newCardCompleteTxt);
 	newCard.append(newCardComplete);
 	mainRoot.append(newCard);
-	const todoMainId = Date.now();
-	newCard.dataset.id = todoMainId;
-	const toDoApi = new ToDoConstructor(text, todoMainId, false);
+
+	newCard.dataset.id = id;
+	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false);
 	toDoArr.push(toDoApi);
 	localStorage.setItem('todoArr', JSON.stringify(toDoArr));
+	console.log(newCard.dataset.id);
+
 
 	//Give name our variables for future working in CSS
 	mainRoot.className = 'main__root';
@@ -86,7 +88,6 @@ const addNewCard = function (text, isChecked = false) {
 			}
 			localStorage.removeItem('todoArr');
 		} else if (event.target === newCardClose) {
-			console.log(newCard.dataset.id);
 			let arrFilter = toDoArr.filter(
 				(elem) => +elem.toDoId !== +newCard.dataset.id
 			);
@@ -108,21 +109,13 @@ const addNewCard = function (text, isChecked = false) {
 };
 
 addBtn.addEventListener('click', (event) => {
-	addNewCard(theNote.value, false);
+	addNewCard(theNote.value, false, Date.now());
 });
 
 //Add API element to HTML
 const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
 if (todoArrFromStorage && todoArrFromStorage.length) {
 	todoArrFromStorage.forEach((element) => {
-		mainRoot.append(addNewCard(element.toDoText, element.toDoComplete));
+		mainRoot.append(addNewCard(element.toDoText, element.toDoComplete, element.toDoId));
 	});
 }
-
-//Decktucturisation
-/*     for (const newCards of toDoArr) {
-        var {toDoText, toDoId, toDoComplete} = newCards;
-    }
-    console.log(toDoText);
-    console.log(toDoId);
-    console.log(toDoComplete); */
