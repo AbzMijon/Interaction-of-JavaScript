@@ -103,6 +103,16 @@ button {
 }
 
 .root__new-card--completed {
+    padding: 15px 170px 15px 20px;
+    max-width: 100%;
+    position: relative;
+    border: 6px solid #000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 30px;
     text-decoration: line-through;
     color: #851b1b;
     background-color: #851b1b;

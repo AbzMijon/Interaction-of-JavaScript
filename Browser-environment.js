@@ -85,25 +85,15 @@
                 for (const card of arrCard) {
                     card.remove();
                 }
-                localStorage.removeItem('todoArr');
-        
+                localStorage.removeItem('todoArr');      
             } else if (event.target === newCardClose) {
                 let arrFilter = toDoArr.filter(elem => +elem.toDoId !== +newCard.dataset.id);
                 localStorage.setItem('todoArr', JSON.stringify(arrFilter));
-                newCard.remove();
-        
+                newCard.remove();      
             } else if (event.target === newCardComplete) {
                 newCard.classList.toggle('complete-card-bg');
-            } else if (event.target === newCard) {
-                console.log(event.target.dataset.id);
-                console.log(localStorage.getItem('todoArr'));
-            }
-        })
-
-        mainRoot.addEventListener('click', event => {
-            if(event.target === newCard) {
+            } else if(event.target === newCard) {
                 const todoClickCard = toDoArr.find(elem => +elem.toDoId === +event.target.dataset.id);
-                console.log(todoClickCard);
                 todoClickCard.toDoComplete = !todoClickCard.toDoComplete;
                 localStorage.setItem('todoArr', JSON.stringify(toDoArr));
             }
