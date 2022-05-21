@@ -27,14 +27,15 @@ theNote.className = 'root__note';
 delBtn.className = 'root__del-btn';
 
 //API Locale Storage
-let toDoArr = [];
-const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
-	this.toDoText = toDoText;
-	this.toDoId = toDoId;
-	this.toDoComplete = toDoComplete;
-};
+	let toDoArr = []; //In this array in future we will add our cards
+	const ToDoConstructor = function (toDoText, toDoId, toDoComplete) { //It is a sample card
+		this.toDoText = toDoText;
+		this.toDoId = toDoId;
+		this.toDoComplete = toDoComplete;
+	};
 
-const addNewCard = function (text, isChecked = false, id) {
+	//Creating layout of card
+const addNewCard = function(text, isChecked = false, id) {
 	//Announce variables..
 	const newCard = document.createElement('div');
 	const newCardComplete = document.createElement('button');
@@ -57,12 +58,10 @@ const addNewCard = function (text, isChecked = false, id) {
 	newCard.append(newCardComplete);
 	mainRoot.append(newCard);
 
-	newCard.dataset.id = id;
+	newCard.dataset.id = id; //Our data-set to equal atribut 'id' 
 	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false);
 	toDoArr.push(toDoApi);
 	localStorage.setItem('todoArr', JSON.stringify(toDoArr));
-	console.log(newCard.dataset.id);
-
 
 	//Give name our variables for future working in CSS
 	mainRoot.className = 'main__root';
@@ -79,23 +78,22 @@ const addNewCard = function (text, isChecked = false, id) {
 	newCardDate.className = 'root__date-btn';
 
 	//Events
-
-	const arrCard = document.getElementsByClassName('root__new-card');
+	const arrCard = document.getElementsByClassName('root__new-card'); //All cards
 	mainRoot.addEventListener('click', (event) => {
-		if (event.target === delBtn) {
+		if (event.target === delBtn) { //Event for delete all cards
 			for (const card of arrCard) {
 				card.remove();
 			}
 			localStorage.removeItem('todoArr');
-		} else if (event.target === newCardClose) {
+		} else if (event.target === newCardClose) { //Event for delete one card
 			let arrFilter = toDoArr.filter(
 				(elem) => +elem.toDoId !== +newCard.dataset.id
 			);
 			localStorage.setItem('todoArr', JSON.stringify(arrFilter));
 			newCard.remove();
-		} else if (event.target === newCardComplete) {
+		} else if (event.target === newCardComplete) { //Event for complete card
 			newCard.classList.toggle('complete-card-bg');
-		} else if (event.target === newCard) {
+		} else if (event.target === newCard) { //Event for save completly card in locale storage
 			const todoClickCard = toDoArr.find(
 				(elem) => +elem.toDoId === +event.target.dataset.id
 			);
@@ -103,16 +101,15 @@ const addNewCard = function (text, isChecked = false, id) {
 			localStorage.setItem('todoArr', JSON.stringify(toDoArr));
 		}
 	});
-
 	theNote.value = '';
 	return newCard;
 };
 
-addBtn.addEventListener('click', (event) => {
+addBtn.addEventListener('click', () => {
 	addNewCard(theNote.value, false, Date.now());
 });
 
-//Add API element to HTML
+//Add storage elements to HTML
 const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
 if (todoArrFromStorage && todoArrFromStorage.length) {
 	todoArrFromStorage.forEach((element) => {
