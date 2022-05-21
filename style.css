@@ -1,5 +1,49 @@
 /*Reset settings*/
-a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul {list-style:none;}blockquote, q {quotes:none;}table, table td {padding:0;border:none;border-collapse:collapse;}img {vertical-align:top;}embed {vertical-align:top;}input[type=text], textarea{ outline:none;border-radius:0;}article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video, main{display:block}mark,rp,rt,ruby,summary,time{display:inline}
+a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt, u, ul, var {
+    background: transparent;
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: top;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+table, table td {
+    padding: 0;
+    border: none;
+    border-collapse: collapse;
+}
+
+img {
+    vertical-align: top;
+}
+
+embed {
+    vertical-align: top;
+}
+
+input[type=text], textarea {
+    outline: none;
+    border-radius: 0;
+}
+
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video, main {
+    display: block
+}
+
+mark, rp, rt, ruby, summary, time {
+    display: inline
+}
 
 body {
     background-color: #e4e4e4;
@@ -16,7 +60,7 @@ button {
     font-size: 30px;
 }
 
-.main__root{
+.main__root {
     background-color: #c2c2c2;
     max-width: 1150px;
     margin: 150px auto;
@@ -25,15 +69,14 @@ button {
     border-radius: 20px;
 }
 
-.root__row{
+.root__row {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2.5fr 1fr;
     column-gap: 30px;
-    margin-bottom: 100px;
 }
 
-.root__note{
+.root__note {
     font-weight: bold;
     text-align: center;
     font-size: 30px;
@@ -41,24 +84,24 @@ button {
     border: 5px solid #000;
 }
 
-.root__new-card{
+.root__new-card {
     padding: 15px 170px 15px 20px;
     max-width: 100%;
     position: relative;
     border: 6px solid #000;
     border-radius: 20px;
     display: flex;
-    justify-content: left; /**/
+    justify-content: left;
     align-items: center;
     flex-direction: row-reverse;
     margin-top: 30px;
 }
 
-.root__complete-btn{
+.root__complete-btn {
     margin-right: 15px;
 }
 
-.root__ToDo{
+.root__ToDo {
     font-size: 40px;
     color: grey;
     background-color: #fff;
@@ -71,13 +114,13 @@ button {
     text-align: center;
 }
 
-.root__close-btn{
+.root__close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-.root__date-btn{
+.root__date-btn {
     font-size: 30px;
     background-color: #fff;
     padding: 10px 35px;
