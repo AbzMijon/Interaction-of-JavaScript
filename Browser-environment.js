@@ -18,7 +18,7 @@
     delBtn.append(textDelBtn);
     toolsRow.append(delBtn);
 
-theNote.placeholder = 'Enter To Do...'; //For placeholder
+    theNote.placeholder = 'Enter To Do...'; //For placeholder
 
     //Give name our variables for future working in CSS
     mainRoot.className = 'main__root';
@@ -48,6 +48,7 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         const newCardDate = document.createElement('div');
         const newCardDateTxt = document.createTextNode(new Date().toDateString());
 
+
         //Adding variables..
         newCardDate.append(newCardDateTxt);
         newCard.append(newCardDate);
@@ -72,10 +73,10 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
         newCardDate.className = 'root__date-btn';
 
         newCard.dataset.id = 1;
-
         const toDoApi = new ToDoConstructor(text, ids++, false);
         toDoArr.push(toDoApi);
         localStorage.setItem('todoArr', JSON.stringify(toDoArr));
+
         //Events
 
         const arrCard = document.getElementsByClassName('root__new-card');
@@ -85,22 +86,20 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
                     card.remove();
                 }
                 localStorage.removeItem('todoArr');
-
+        
             } else if (event.target === newCardClose) {
-                console.log(newCard.dataset.id);
-                let arr1 = toDoArr.filter(elem => +elem.toDoId !== +newCard.dataset.id);
-                localStorage.setItem('todoArr', JSON.stringify(arr1));
+                let arrFilter = toDoArr.filter(elem => +elem.toDoId !== +newCard.dataset.id);
+                localStorage.setItem('todoArr', JSON.stringify(arrFilter));
                 newCard.remove();
-
+        
             } else if (event.target === newCardComplete) {
                 newCard.classList.toggle('complete-card-bg');
             }
         })
-
         theNote.value = '';
-
         return newCard;
     }
+
 
     addBtn.addEventListener('click', (event) => {
         addNewCard(theNote.value, false);
@@ -113,3 +112,12 @@ theNote.placeholder = 'Enter To Do...'; //For placeholder
             mainRoot.append(addNewCard(element.toDoText));
         })
     }
+    
+
+    //Decktucturisation
+    for (const newCards of toDoArr) {
+        var {toDoText, toDoId, toDoComplete} = newCards;
+    }
+    console.log(toDoText);
+    console.log(toDoId);
+    console.log(toDoComplete);

@@ -94,6 +94,7 @@ button {
 
 .complete-card-bg {
     background-color: #851b1b;
+    transition: 0.5s;
 }
 
 .complete-card-bg .root__ToDo {
