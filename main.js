@@ -60,13 +60,13 @@ const addNewCard = function (text, isChecked = false, id) {
 	mainRoot.append(newCard);
 
 	newCard.dataset.id = id; //Our data-set to equal atribut 'id'
-	const toDoApi = new ToDoConstructor(text, id, false); //Create card througth Constructor
+	const toDoApi = new ToDoConstructor(text, id, isChecked); //Create card througth Constructor
 	toDoArr.push(toDoApi);
 	localStorage.setItem('todoArr', JSON.stringify(toDoArr)); //Add to locale storage
 
 	//Give name our variables for future working in CSS
 	newCard.className = isChecked
-		? 'root__new-card--completed'
+		? 'root__new-card completed'
 		: 'root__new-card';
 	newCardComplete.className = 'root__complete-btn';
 	newCardToDo.className = 'root__ToDo';
@@ -96,7 +96,7 @@ const addNewCard = function (text, isChecked = false, id) {
 			let currentElem = event.target.closest('.root__new-card');
 			const selectedTodo = toDoArr.find(todo => +todo.toDoId === +currentElem.dataset.id);
 			selectedTodo.toDoComplete = !selectedTodo.toDoComplete;
-			newCard.classList.toggle('complete-card-bg');
+			newCard.classList.toggle('completed');
 			localStorage.setItem('todoArr', JSON.stringify(toDoArr));
 		}
 	});

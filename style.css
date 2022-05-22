@@ -136,8 +136,7 @@ button {
 }
 
 .complete-card-bg {
-    background-color: #851b1b;
-    transition: 0.5s;
+
 }
 
 .complete-card-bg .root__ToDo {
@@ -145,7 +144,7 @@ button {
     color: #851b1b;
 }
 
-.root__new-card--completed {
+.completed {
     padding: 15px 170px 15px 20px;
     max-width: 100%;
     position: relative;
