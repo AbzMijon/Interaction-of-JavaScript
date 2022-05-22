@@ -1,14 +1,11 @@
 //Hi, everybody! Today Challendge Only JavaScript with CSS ------------------------------------------------------------------------------------
-import { mainRoot, addBtn, theNote, delBtn} from './mod.js';
 
-//Array our future cards and Constructor
+//Imports
+import { mainRoot, addBtn, theNote, delBtn } from './MainVariable.js';
+import { ToDoConstructor } from './Constructor.js';
+
+//Array our future cards
 let toDoArr = []; //In this array in future we will add our cards
-const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
-	//It is a sample card
-	this.toDoText = toDoText;
-	this.toDoId = toDoId;
-	this.toDoComplete = toDoComplete;
-};
 
 //Creating layout of card
 const addNewCard = function (text, isChecked = false, id) {
@@ -56,12 +53,14 @@ const addNewCard = function (text, isChecked = false, id) {
 			for (const card of arrCard) {
 				card.remove();
 			}
+			toDoArr = [];
 			localStorage.removeItem('todoArr');
 		} else if (event.target === newCardClose) {
 			//Event for delete one card
 			let arrFilter = toDoArr.filter(
 				(elem) => +elem.toDoId !== +newCard.dataset.id
 			);
+			console.log(arrFilter);
 			localStorage.setItem('todoArr', JSON.stringify(arrFilter));
 			newCard.remove();
 		} else if (event.target === newCardComplete) {
@@ -81,6 +80,7 @@ const addNewCard = function (text, isChecked = false, id) {
 };
 
 addBtn.addEventListener('click', () => {
+	if (theNote.value === '') return;
 	addNewCard(theNote.value, false, Date.now());
 });
 
