@@ -28,7 +28,8 @@ delBtn.className = 'root__del-btn';
 
 //Array our future cards
 let toDoArr = []; //In this array in future we will add our cards
-export const ToDoConstructor = function (toDoText, toDoId, toDoComplete) { //It is a sample card
+export const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
+	//It is a sample card
 	this.toDoText = toDoText;
 	this.toDoId = toDoId;
 	this.toDoComplete = toDoComplete;
@@ -59,7 +60,7 @@ const addNewCard = function (text, isChecked = false, id) {
 	mainRoot.append(newCard);
 
 	newCard.dataset.id = id; //Our data-set to equal atribut 'id'
-	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false); //Create card througth Constructor
+	const toDoApi = new ToDoConstructor(text, id, false); //Create card througth Constructor
 	toDoArr.push(toDoApi);
 	localStorage.setItem('todoArr', JSON.stringify(toDoArr)); //Add to locale storage
 
@@ -92,15 +93,11 @@ const addNewCard = function (text, isChecked = false, id) {
 			newCard.remove();
 		} else if (event.target === newCardComplete) {
 			//Event for complete card
+			let currentElem = event.target.closest('.root__new-card');
+			const selectedTodo = toDoArr.find(todo => +todo.toDoId === +currentElem.dataset.id);
+			selectedTodo.toDoComplete = !selectedTodo.toDoComplete;
 			newCard.classList.toggle('complete-card-bg');
-		} else if (event.target === newCard) {
-			//Event for save completly card in locale storage
-			const todoClickCard = toDoArr.find(
-				(elem) => +elem.toDoId === +event.target.dataset.id
-			);
-			console.log(todoClickCard);
-			todoClickCard.toDoComplete = !todoClickCard.toDoComplete;
-			localStorage.setItem('todoArr', JSON.stringify(toDoArr)); //???
+			localStorage.setItem('todoArr', JSON.stringify(toDoArr));
 		}
 	});
 	theNote.value = '';
