@@ -50,113 +50,23 @@ body {
     font-weight: bold;
 }
 
-button {
-    font-weight: bold;
-    border: 5px solid #000;
-    border-radius: 15px;
-    background-color: #70e09f;
-    cursor: pointer;
-    padding: 15px 25px;
-    font-size: 30px;
-}
-
-.main__root {
-    background-color: #c2c2c2;
-    max-width: 1150px;
-    margin: 150px auto;
-    padding: 25px 50px;
-    border: 7px solid #000;
-    border-radius: 20px;
-}
-
-.root__row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr;
-    column-gap: 30px;
-}
-
-.root__note {
-    font-weight: bold;
-    text-align: center;
-    font-size: 30px;
-    outline: none;
-    border: 5px solid #000;
-}
-
-.root__new-card {
-    padding: 15px 170px 15px 20px;
-    max-width: 100%;
-    position: relative;
-    border: 6px solid #000;
-    border-radius: 20px;
+#root {
     display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-direction: row-reverse;
-    margin-top: 30px;
+    align-items: flex-start;
 }
 
-.root__complete-btn {
-    margin-right: 15px;
-}
-
-.root__ToDo {
-    font-size: 40px;
-    color: grey;
-    background-color: #fff;
-    padding: 10px 20px;
-    margin: 60px 0;
-    border-radius: 10px;
-    overflow-y: auto;
-    width: 100%;
-    min-height: 100px;
-    text-align: center;
-}
-
-.root__close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.root__date-btn {
-    font-size: 30px;
-    background-color: #fff;
-    padding: 10px 35px;
-    color: grey;
-    letter-spacing: 1px;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 20px;
-    color: #000;
-    font-weight: bold;
-    letter-spacing: -0.5px;
-}
-
-.complete-card-bg {
-    background-color: #851b1b;
-    transition: 0.5s;
-}
-
-.complete-card-bg .root__ToDo {
-    text-decoration: line-through;
-    color: #851b1b;
-}
-
-.root__new-card--completed {
-    padding: 15px 170px 15px 20px;
-    max-width: 100%;
+.card {
     position: relative;
-    border: 6px solid #000;
-    border-radius: 20px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-direction: row-reverse;
-    margin-top: 30px;
-    text-decoration: line-through;
-    color: #851b1b;
-    background-color: #851b1b;
+    margin-left: 15px;
+    width: 200px;
+    height: 500px;
+    border: 5px solid #000;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.closeCard {
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
