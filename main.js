@@ -58,7 +58,6 @@ const addNewCard = function (text, isChecked = false, id) {
 	newCardComplete.append(newCardCompleteTxt);
 	newCard.append(newCardComplete);
 	mainRoot.append(newCard);
-
 	newCard.dataset.id = id; //Our data-set to equal atribut 'id'
 	const toDoApi = new ToDoConstructor(text, id, isChecked); //Create card througth Constructor
 	toDoArr.push(toDoApi);
@@ -88,13 +87,14 @@ const addNewCard = function (text, isChecked = false, id) {
 			let arrFilter = toDoArr.filter(
 				(elem) => +elem.toDoId !== +newCard.dataset.id
 			);
-			console.log(arrFilter);
 			localStorage.setItem('todoArr', JSON.stringify(arrFilter));
 			newCard.remove();
 		} else if (event.target === newCardComplete) {
 			//Event for complete card
 			let currentElem = event.target.closest('.root__new-card');
-			const selectedTodo = toDoArr.find(todo => +todo.toDoId === +currentElem.dataset.id);
+			const selectedTodo = toDoArr.find(
+				(todo) => +todo.toDoId === +currentElem.dataset.id
+			);
 			selectedTodo.toDoComplete = !selectedTodo.toDoComplete;
 			newCard.classList.toggle('completed');
 			localStorage.setItem('todoArr', JSON.stringify(toDoArr));
