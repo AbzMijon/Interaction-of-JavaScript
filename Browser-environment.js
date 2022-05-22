@@ -28,7 +28,8 @@ delBtn.className = 'root__del-btn';
 
 //Array our future cards
 let toDoArr = []; //In this array in future we will add our cards
-export const ToDoConstructor = function (toDoText, toDoId, toDoComplete) { //It is a sample card
+export const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
+	//It is a sample card
 	this.toDoText = toDoText;
 	this.toDoId = toDoId;
 	this.toDoComplete = toDoComplete;
