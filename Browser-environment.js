@@ -1,41 +1,17 @@
 //Hi, everybody! Today Challendge Only JavaScript with CSS ------------------------------------------------------------------------------------
+import { mainRoot, addBtn, theNote, delBtn} from './mod.js';
 
-//In The Beginning We Announce Variables..
-const mainRoot = document.getElementById('root');
-const toolsRow = document.createElement('div');
-const addBtn = document.createElement('button');
-const textAddBtn = document.createTextNode('Add');
-const theNote = document.createElement('input');
-const delBtn = document.createElement('button');
-const textDelBtn = document.createTextNode('Delete All');
+//Array our future cards and Constructor
+let toDoArr = []; //In this array in future we will add our cards
+const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
+	//It is a sample card
+	this.toDoText = toDoText;
+	this.toDoId = toDoId;
+	this.toDoComplete = toDoComplete;
+};
 
-//Then We Add To MainRoot Variables..
-mainRoot.append(toolsRow);
-addBtn.append(textAddBtn);
-toolsRow.append(addBtn);
-toolsRow.append(theNote);
-delBtn.append(textDelBtn);
-toolsRow.append(delBtn);
-
-theNote.placeholder = 'Enter To Do...'; //For placeholder
-
-//Give name our variables for future working in CSS
-mainRoot.className = 'main__root';
-toolsRow.className = 'root__row';
-addBtn.className = 'root__add-btn';
-theNote.className = 'root__note';
-delBtn.className = 'root__del-btn';
-
-//API Locale Storage
-	let toDoArr = []; //In this array in future we will add our cards
-	const ToDoConstructor = function (toDoText, toDoId, toDoComplete) { //It is a sample card
-		this.toDoText = toDoText;
-		this.toDoId = toDoId;
-		this.toDoComplete = toDoComplete;
-	};
-
-	//Creating layout of card
-const addNewCard = function(text, isChecked = false, id) {
+//Creating layout of card
+const addNewCard = function (text, isChecked = false, id) {
 	//Announce variables..
 	const newCard = document.createElement('div');
 	const newCardComplete = document.createElement('button');
@@ -58,17 +34,12 @@ const addNewCard = function(text, isChecked = false, id) {
 	newCard.append(newCardComplete);
 	mainRoot.append(newCard);
 
-	newCard.dataset.id = id; //Our data-set to equal atribut 'id' 
-	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false);
+	newCard.dataset.id = id; //Our data-set to equal atribut 'id'
+	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false); //Create card throuth Constructor
 	toDoArr.push(toDoApi);
-	localStorage.setItem('todoArr', JSON.stringify(toDoArr));
+	localStorage.setItem('todoArr', JSON.stringify(toDoArr)); //Add to locale storage
 
 	//Give name our variables for future working in CSS
-	mainRoot.className = 'main__root';
-	toolsRow.className = 'root__row';
-	addBtn.className = 'root__add-btn';
-	theNote.className = 'root__note';
-	delBtn.className = 'root__del-btn';
 	newCard.className = isChecked
 		? 'root__new-card--completed'
 		: 'root__new-card';
@@ -80,20 +51,24 @@ const addNewCard = function(text, isChecked = false, id) {
 	//Events
 	const arrCard = document.getElementsByClassName('root__new-card'); //All cards
 	mainRoot.addEventListener('click', (event) => {
-		if (event.target === delBtn) { //Event for delete all cards
+		if (event.target === delBtn) {
+			//Event for delete all cards
 			for (const card of arrCard) {
 				card.remove();
 			}
 			localStorage.removeItem('todoArr');
-		} else if (event.target === newCardClose) { //Event for delete one card
+		} else if (event.target === newCardClose) {
+			//Event for delete one card
 			let arrFilter = toDoArr.filter(
 				(elem) => +elem.toDoId !== +newCard.dataset.id
 			);
 			localStorage.setItem('todoArr', JSON.stringify(arrFilter));
 			newCard.remove();
-		} else if (event.target === newCardComplete) { //Event for complete card
+		} else if (event.target === newCardComplete) {
+			//Event for complete card
 			newCard.classList.toggle('complete-card-bg');
-		} else if (event.target === newCard) { //Event for save completly card in locale storage
+		} else if (event.target === newCard) {
+			//Event for save completly card in locale storage
 			const todoClickCard = toDoArr.find(
 				(elem) => +elem.toDoId === +event.target.dataset.id
 			);
@@ -113,6 +88,8 @@ addBtn.addEventListener('click', () => {
 const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
 if (todoArrFromStorage && todoArrFromStorage.length) {
 	todoArrFromStorage.forEach((element) => {
-		mainRoot.append(addNewCard(element.toDoText, element.toDoComplete, element.toDoId));
+		mainRoot.append(
+			addNewCard(element.toDoText, element.toDoComplete, element.toDoId)
+		);
 	});
 }
