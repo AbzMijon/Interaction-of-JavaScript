@@ -32,7 +32,7 @@ const addNewCard = function (text, isChecked = false, id) {
 	mainRoot.append(newCard);
 
 	newCard.dataset.id = id; //Our data-set to equal atribut 'id'
-	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false); //Create card throuth Constructor
+	const toDoApi = new ToDoConstructor(text, newCard.dataset.id, false); //Create card througth Constructor
 	toDoArr.push(toDoApi);
 	localStorage.setItem('todoArr', JSON.stringify(toDoArr)); //Add to locale storage
 
@@ -71,8 +71,9 @@ const addNewCard = function (text, isChecked = false, id) {
 			const todoClickCard = toDoArr.find(
 				(elem) => +elem.toDoId === +event.target.dataset.id
 			);
+			console.log(todoClickCard);
 			todoClickCard.toDoComplete = !todoClickCard.toDoComplete;
-			localStorage.setItem('todoArr', JSON.stringify(toDoArr));
+			localStorage.setItem('todoArr', JSON.stringify(toDoArr)); //???
 		}
 	});
 	theNote.value = '';
