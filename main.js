@@ -1,16 +1,16 @@
 //Hi, everybody! Today Challendge Only JavaScript with CSS ------------------------------------------------------------------------------------
 
 //In The Beginning We Announce Variables..
-export const mainRoot = document.getElementById('root');
-export const toolsRow = document.createElement('div');
-export const addBtn = document.createElement('button');
-export const textAddBtn = document.createTextNode('Add');
-export const theNote = document.createElement('input');
-export const delBtn = document.createElement('button');
-export const textDelBtn = document.createTextNode('Delete All');
+const root = document.getElementById('root');
+const toolsRow = document.createElement('div');
+const addBtn = document.createElement('button');
+const textAddBtn = document.createTextNode('Add');
+const theNote = document.createElement('input');
+const delBtn = document.createElement('button');
+const textDelBtn = document.createTextNode('Delete All');
 
-//Then We Add To MainRoot Variables..
-mainRoot.append(toolsRow);
+//Then We Add To root Variables..
+root.append(toolsRow);
 addBtn.append(textAddBtn);
 toolsRow.append(addBtn);
 toolsRow.append(theNote);
@@ -20,7 +20,7 @@ toolsRow.append(delBtn);
 theNote.placeholder = 'Enter To Do...'; //For placeholder
 
 //Give name our variables for future working in CSS
-mainRoot.className = 'main__root';
+root.className = 'root';
 toolsRow.className = 'root__row';
 addBtn.className = 'root__add-btn';
 theNote.className = 'root__note';
@@ -28,7 +28,7 @@ delBtn.className = 'root__del-btn';
 
 //Array our future cards
 let toDoArr = []; //In this array in future we will add our cards
-export const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
+const ToDoConstructor = function (toDoText, toDoId, toDoComplete) {
 	//It is a sample card
 	this.toDoText = toDoText;
 	this.toDoId = toDoId;
@@ -57,7 +57,7 @@ const addNewCard = function (text, isChecked = false, id) {
 	newCard.append(newCardToDo);
 	newCardComplete.append(newCardCompleteTxt);
 	newCard.append(newCardComplete);
-	mainRoot.append(newCard);
+	root.append(newCard);
 	newCard.dataset.id = id; //Our data-set to equal atribut 'id'
 	const toDoApi = new ToDoConstructor(text, id, isChecked); //Create card througth Constructor
 	toDoArr.push(toDoApi);
@@ -74,7 +74,7 @@ const addNewCard = function (text, isChecked = false, id) {
 
 	//Events
 	const arrCard = document.getElementsByClassName('root__new-card'); //All cards
-	mainRoot.addEventListener('click', (event) => {
+	root.addEventListener('click', (event) => {
 		if (event.target === delBtn) {
 			//Event for delete all cards
 			for (const card of arrCard) {
@@ -113,7 +113,7 @@ addBtn.addEventListener('click', () => {
 const todoArrFromStorage = JSON.parse(localStorage.getItem('todoArr'));
 if (todoArrFromStorage && todoArrFromStorage.length) {
 	todoArrFromStorage.forEach((element) => {
-		mainRoot.append(
+		root.append(
 			addNewCard(element.toDoText, element.toDoComplete, element.toDoId)
 		);
 	});
