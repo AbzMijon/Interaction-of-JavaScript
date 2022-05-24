@@ -20,3 +20,15 @@ for (const user of users) {
         otherUsers.push(user);
     }
 }
+
+const arrObj = [
+    {
+        name:'egor',
+    },
+    {
+        age:21,
+    },
+]
+
+const allObj = [...arrObj];
+console.log(allObj);
