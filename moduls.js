@@ -31,4 +31,4 @@ const arrObj = [
 ]
 
 const allObj = [...arrObj];
-console.log(allObj);
+
