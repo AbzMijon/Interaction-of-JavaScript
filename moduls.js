@@ -30,5 +30,3 @@ const arrObj = [
     },
 ]
 
-const allObj = [...arrObj];
-
