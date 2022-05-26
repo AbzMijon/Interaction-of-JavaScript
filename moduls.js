@@ -29,4 +29,3 @@ const arrObj = [
         age:21,
     },
 ]
-
