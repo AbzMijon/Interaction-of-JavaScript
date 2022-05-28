@@ -10,10 +10,10 @@ const pauseBtn = document.querySelector('.pause--btn');
 const stopBtn = document.querySelector('.stop--btn');
 
 //Add variable
-let hours = 00,
-	minutes = 00,
-	seconds = 00,
-	miliseconds = 00,
+let hours = 0,
+	minutes = 0,
+	seconds = 0,
+	miliseconds = 0,
 	timer;
 
 //Events
@@ -80,7 +80,3 @@ stopBtn.addEventListener('click', () => {
 	hourElem.innerText = '00';
 	clearInterval(timer);
 });
-
-const test = setInterval(() => {
-    console.log('1 minute is passed..');
-}, 60000);
