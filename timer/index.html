@@ -8,10 +8,28 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div class="wrapper">
-        <button class="wrapper__btn--start btn">start</button>
-        <div class="wrapper__result"></div>
-        <button class="wrapper__btn--stop btn">stop</button>
+    <ul class="wrapper">
+        <li class="wrapper__item">
+            <div class="wrapper__time hours">00</div>
+            <div class="wrapper__name">Hours</div>
+        </li>
+        <li class="wrapper__item">
+            <div class="wrapper__time minutes">00</div>
+            <div class="wrapper__name">Minutes</div>
+        </li>
+        <li class="wrapper__item">
+            <div class="wrapper__time seconds">00</div>
+            <div class="wrapper__name">Seconds</div>
+        </li>
+        <li class="wrapper__item">
+            <div class="wrapper__time miliseconds">00</div>
+            <div class="wrapper__name">Miliseconds</div>
+        </li>
+    </ul>
+    <div class="btn-row">
+        <button class="start--btn btn">Start</button>
+        <button class="pause--btn btn">Pause</button>
+        <button class="stop--btn btn">Stop</button>
     </div>
 
     <script src="./index.js"></script>

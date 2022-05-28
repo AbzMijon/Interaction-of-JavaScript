@@ -3,59 +3,80 @@
 }
 
 body {
-    background-color: #e6bbd4;
+    background-color: #d6d6d6;
     position: relative;
     height: 100vh;
     margin: 0;
 }
 
-.wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 5px solid #000;
-    border-radius: 10px;
-    transform: translate(-50%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 60px;
-}
-
 .btn {
     border: none;
     outline: none;
-    background-color: #FF4343;
-    min-width: 280px;
-    min-height: 80px;
+    background-color: #998686;
+    min-width: 200px;
+    min-height: 50px;
     padding: 5px;
     transition: all 0.2s cubic-bezier(0, 0.99, 0.51, 0.53);
     cursor: pointer;
-    font-weight: 900;
+    font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     text-transform: uppercase;
     color: #FFFFFF;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 50px #fff;
-}
-.wrapper__btn--start {
-    background-color: green;
 }
 
-.wrapper__result {
+.wrapper {
+    list-style: none;
+    padding: 150px 70px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    justify-items: center;
+}
+.wrapper__item {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 60px;
+    font-size: 130px;
     color: #fff;
-    letter-spacing: 1px;
+    position: relative;
+    padding: 30px 50px;
+    background-color: #2d7fb6;
+    border-radius: 0 0 20px 20px;
+    min-height: 300px;
     font-weight: bold;
-    min-width: 520px;
-    min-height: 200px;
-    background-color: #e5a9cc;
-    margin: 0 30px 0 30px;
+}
+.wrapper__time {
+    letter-spacing: 10px;
+}
+.wrapper__name {
+    text-align: center;
+    position: absolute;
+    background-color: #1b5780;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 30px;
+    border-radius: 0 0 20px 20px;
+    letter-spacing: 2px;
+}
+
+.btn-row {
+    position: absolute;
+    left: 28%;
+    top: 65%;
+}
+.start--btn {
+    background-color: green;
+}
+.btn {
+    margin-right: 70px;
+}
+.stop--btn {
+    background-color: red;
 }
