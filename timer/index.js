@@ -49,6 +49,7 @@ startBtn.addEventListener('click', () => {
 					minuteElem.innerText = minutes;
 				}
 				if (minutes > 59) {
+					minutes = 0;
 					minuteElem.innerText = '00';
 					hours++;
 					if (hours <= 9) {
@@ -80,3 +81,5 @@ stopBtn.addEventListener('click', () => {
 	hourElem.innerText = '00';
 	clearInterval(timer);
 });
+
+//The design was taken from the channel https://www.youtube.com/watch?v=GzG1WIJ2XwQ&t=1386s
