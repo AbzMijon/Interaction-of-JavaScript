@@ -21,11 +21,9 @@ startBtn.addEventListener('click', () => {
 	timer = setInterval(() => {
 		miliseconds++;
 		if (miliseconds < 9) {
-			miliseconds++;
 			miliSecondElem.innerText = '0' + miliseconds;
 		}
 		if (miliseconds > 9) {
-			miliseconds++;
 			miliSecondElem.innerText = miliseconds;
 		}
 		if (miliseconds > 99) {
@@ -64,7 +62,7 @@ startBtn.addEventListener('click', () => {
 				}
 			}
 		}
-	}, 20);
+	}, 10);
 });
 
 pauseBtn.addEventListener('click', () => {
