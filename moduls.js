@@ -1,4 +1,4 @@
-/* const users = [
+const users = [
     {
         name: 'Vlad',
         age: 21,
@@ -67,25 +67,3 @@ const getStorage = () => {
     }
 }
 getStorage();
- */
-
-
-
-
-
-
-
-
-//lesson
-
-const newPromise = () => {
-    return new Promise((resolve, reject) => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-    .then(users => users.json())
-    .then(jsonUsers => resolve(jsonUsers))
-    })
-}
-
-newPromise().then(names => names.forEach(element => {
-    document.write(element.name);
-}));
