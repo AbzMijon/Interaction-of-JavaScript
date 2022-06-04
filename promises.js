@@ -59,13 +59,3 @@ new Promise ((resolve, reject) => {
 })
 console.log(allUsers);
 console.log(errUsers);
-
-//Lesson
-const delay = ms => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log('resolved');
-        }, ms);
-    })
-}
-delay(1000).then(elem => console.log(elem));
