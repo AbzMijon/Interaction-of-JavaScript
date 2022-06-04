@@ -19,3 +19,64 @@ const getPosts = async () => {
 getPosts().catch((err) =>
 	console.log(new Error(`Error is detected in: ${err}`))
 );
+
+
+//Codewars Tasks
+
+//Task 1
+const first = () => {
+	let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+	let result = [];
+	for (const iterator of arr) {
+		if(iterator % 2 === 0) {
+			result.push(iterator * 2);
+		}
+	}
+	console.log(result);
+}
+first();
+
+//Task 2
+let someObj = {
+	name: 'user',
+	age: 22,
+	isWife: true,
+}
+const second = (obj) => {
+	const newObj = {...obj};
+	newObj.test = true;
+	console.log(newObj);
+}
+second(someObj);
+
+//Task 3
+const third = () => {
+	'use strict'
+	console.log(typeof null)
+}
+third();
+
+//Task 4
+const fouth = (arr) => {
+	const result = arr.filter(elem => elem % 2 === 0);
+	console.log(result);
+}
+fouth([1,2,3,4,5,6]);
+
+//Task 5
+const fifth = (num) => {
+	let result = [];
+	for (let i = 0; i < num; i++) {
+		if(i % 2 !== 0) {
+			result.push(i);
+		};
+	}
+	console.log(result);
+}
+fifth(15);
+
+//Task 6
+const six = (str) => {
+	return +str;
+}
+console.log(six(-8));
