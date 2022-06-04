@@ -61,3 +61,26 @@ body {
     transform: scale(1.1);
     background-color: aliceblue;
 }
+
+#btn {
+    padding: 10px 15px;
+    border: 3px solid #000;
+    border-radius: 5px;
+    font-size: 25px;
+    background-color: crimson;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.3s all;
+    width: 100%;
+}
+#btn:hover {
+    transform: scale(1.1);
+    background-color: #bb2b48;
+}
+
+#txt {
+    height: 300px;
+    width: 100%;
+    border: 5px solid #000;
+    border-radius: 5px;
+}

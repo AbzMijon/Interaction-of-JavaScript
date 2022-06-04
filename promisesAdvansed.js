@@ -20,6 +20,22 @@ getPosts().catch((err) =>
 	console.log(new Error(`Error is detected in: ${err}`))
 );
 
+//Practice
+const btn = document.getElementById('btn');
+const txt = document.getElementById('txt');
+
+const getTxtFromDatabase = async() => {
+	const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+	const responseJson = await response.json();
+	const text = await responseJson.forEach(e => {
+		return txt.innerText = e.body;
+	})
+}
+btn.addEventListener('click', getTxtFromDatabase);
+btn.addEventListener('dblclick', () => {
+	txt.innerText = '';
+})
+
 
 //Codewars Tasks
 
