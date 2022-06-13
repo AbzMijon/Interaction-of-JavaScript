@@ -6,5 +6,3 @@ btn.addEventListener('click', () => {
     localStorage.setItem('txValue', tx.value);
 })
 tx.value = localStorage.getItem('txValue');
-
-
